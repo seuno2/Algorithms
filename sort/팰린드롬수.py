@@ -1,3 +1,6 @@
+#1259
+#https://www.acmicpc.net/problem/1259
+
 import sys
 
 nums = []
