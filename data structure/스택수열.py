@@ -1,3 +1,4 @@
+# 3190
 # https://www.acmicpc.net/problem/1874
 
 import sys
