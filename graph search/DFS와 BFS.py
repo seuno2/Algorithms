@@ -15,7 +15,6 @@ for _ in range(M):
 visited1 = [False] * (N + 1)
 visited2 = [False] * (N + 1)
 
-#for col in graph: print(col)
 
 def bfs(V):
     q = deque([V])
@@ -27,14 +26,12 @@ def bfs(V):
             if not visited2[i] and graph[V][i]:
                 q.append(i)
                 visited2[i] = True
-        #print('q:',q)
-        #print('visited:',visited2)
 
 
 def dfs(V):
     visited1[V] = True
     print(V, end=' ')
-    for i in range(N+1):
+    for i in range(1, N+1):
         if not visited1[i] and graph[V][i]:
             dfs(i)
 dfs(V)
