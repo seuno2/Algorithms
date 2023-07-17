@@ -57,17 +57,17 @@ A = []
 for _ in range(N):
     A.append([0, 0] + list(map(int, sys.stdin.readline().split(' '))) + [0, 0]) 
 
-# 모래 총량 구하기
-sandTotal = 0
-for row in A:
-    for i in row:
-        sandTotal += i
-
 # 위아래 +2 마진 격자 생성
 arr = [[0]*(N+4),[0]*(N+4)] + A + [[0]*(N+4),[0]*(N+4)]
 
 # 방문한곳 표시
 visited = [[False]*(N+4) for _ in range(N+4)]
+
+# 모래 총량 구하기
+sandTotal = 0
+for row in A:
+    for i in row:
+        sandTotal += i
 
 dx = [-1,0,1,0]
 dy = [0,1,0,-1]
@@ -82,19 +82,10 @@ while True:
     y += dy[direction]
     direction = getDirection(visited, x, y, direction)
     
-    # for row in arr:
-    #     print(row)
-    # print(' ')
-
-    # for row in visited:
-    #     print(row)
-    # print(' ')
-
     if visited[2][3]:    
         break
 
 sandInside = 0
-
 for i in range(2, N + 2):
     for j in range(2, N + 2):
         sandInside += arr[i][j]
