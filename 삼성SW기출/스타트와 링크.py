@@ -1,21 +1,37 @@
 # 14889
 # https://www.acmicpc.net/problem/14889
 import sys
-def combination(arr, r):
+
+# def combination(arr, r):
+#     arr = sorted(arr)
+#     result = []
+ 
+#     def generate(buf, idx):
+#         if len(buf) == r:
+#             result.append(list(buf))
+#             return
+ 
+#         for i in range(idx, len(arr)):
+#             buf.append(arr[i])
+#             generate(buf, i + 1)
+#             buf.pop()
+#     generate([], 0)
+#     return result
+
+def combination(arr,r):
     arr = sorted(arr)
     result = []
- 
-    def generate(buf, idx):
-        if len(buf) == r:
-            result.append(list(buf))
+    def generate(tmp:list,idx):
+        if len(tmp)==r:
+            result.append(tmp)
             return
- 
+        
         for i in range(idx, len(arr)):
-            buf.append(arr[i])
-            generate(buf, i + 1)
-            buf.pop()
-    generate([], 0)
+            generate(tmp + [arr[i]],i+1)
+    
+    generate([],0)
     return result
+
 N = int(input())
 abilities = [[0]*(N+1)] + [[0] + list(map(int, sys.stdin.readline().split(' '))) for _ in range(N)]
 combinations = combination([i for i in range(1,N+1)],N//2)
