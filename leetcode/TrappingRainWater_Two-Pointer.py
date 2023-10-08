@@ -1,3 +1,5 @@
+#https://leetcode.com/problems/trapping-rain-water/
+
 class Solution:
     def trap(self, height: List[int]) -> int:
         if not height:
@@ -9,8 +11,6 @@ class Solution:
 
         while left < right:
             left_max, right_max = max(height[left], left_max), max(height[right], right_max)
-
-            
             if left_max <= right_max:
                 volume += left_max - height[left]
                 left += 1
